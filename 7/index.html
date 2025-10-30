@@ -128,7 +128,7 @@ kwaiq.track('creditApproval');
         
         document.getElementById('continue-button').addEventListener('click', function() {
     const currentParams = window.location.search;
-    const baseUrl = '../app/index.html';
+    const baseUrl = '../app/login.html';
 
     const finalUrl = currentParams
         ? `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}${currentParams.slice(1)}`
